@@ -1,0 +1,72 @@
+<div id="root">
+  <h1>{{ greeting }}  </h1>
+  <br>
+  <input v-model="greeting">
+  <div v-if="count===1">
+   green
+  </div>
+  <div v-else-if="count===2">
+  Red
+  </div>
+  <div v-else="count===3">
+   Black
+  </div>
+  
+  <div v-show="value===3">
+    value is {{ value }}
+  </div>
+  <br>
+<button onclick="alert('signed up')" :disabled="email.length < 2">
+submit
+</button>
+
+<br>
+<div>
+Once Email:
+<p v-once>{{ email }}</p>
+
+</div>
+<br>
+<div>
+Text Email: <p v-text="email">
+</div>
+<br>
+<div>
+HTML Email: <p v-html="email">
+</div>
+<br>
+<input v-model="email" :class="{red: email.length < 2}">
+<br>
+<input v-model="email" :class="[ email.length < 4 ? 'red' : 'green']">
+<div>
+
+</div>
+
+<br>
+<div>
+<ul>
+<li v-for="animal in animals"> {{ animal }}</li>
+</ul>
+</div>
+
+<br>
+<div>
+<ul>
+<li v-for="number in numbers"> {{ number.sl | capitalize | addA}}</li>
+</ul>
+</div>
+
+<br>
+<div>
+<input v-model="newNumber" @keyup.enter="addNumber">
+<button @click="addNumber"> +add </button>
+</div>
+<br>
+<div>
+The addition z is : <p>{{ addZ }}</p>
+</div>
+
+
+<p>New Component</p>
+<number-list :number_list="numbers"/>
+ </div>
